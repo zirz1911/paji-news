@@ -41,6 +41,54 @@ def get_main_log_path(session_path):
         return log_path
     return None
 
+def get_app_info():
+    """Get Antigravity app information."""
+    app_support = Path.home() / "Library/Application Support/Antigravity"
+
+    info = {
+        "name": "Antigravity",
+        "developer": "Google",
+        "type": "VS Code-based IDE",
+        "extensions": []
+    }
+
+    # Get latest session to find extensions
+    session = get_latest_session()
+    if session:
+        exthost_path = session / "window1/exthost"
+        if exthost_path.exists():
+            for item in exthost_path.iterdir():
+                if item.is_dir() and not item.name.startswith("output_"):
+                    info["extensions"].append(item.name)
+
+    return info
+
+def show_app_info():
+    """Display app information."""
+    info = get_app_info()
+
+    print("🖥️  Application Info")
+    print("=" * 50)
+    print(f"App Name:    {info['name']}")
+    print(f"Developer:   {info['developer']}")
+    print(f"Type:        {info['type']}")
+    print(f"Logs Path:   {LOGS_BASE}")
+    print()
+    print("📦 Installed Extensions:")
+    print("-" * 50)
+    for ext in sorted(info['extensions']):
+        if 'claude' in ext.lower():
+            print(f"  🟣 {ext}")
+        elif 'google' in ext.lower() or 'antigravity' in ext.lower():
+            print(f"  🔵 {ext}")
+        elif 'github' in ext.lower():
+            print(f"  ⚫ {ext}")
+        elif 'python' in ext.lower():
+            print(f"  🟡 {ext}")
+        else:
+            print(f"  ⚪ {ext}")
+    print("=" * 50)
+
 def list_sessions():
     """List all available sessions."""
     if not LOGS_BASE.exists():
@@ -48,6 +96,10 @@ def list_sessions():
         return
 
     sessions = sorted([d for d in LOGS_BASE.iterdir() if d.is_dir()])
+
+    # Show app info first
+    show_app_info()
+    print()
 
     print("📁 Antigravity Sessions")
     print("=" * 50)
@@ -192,10 +244,13 @@ def main():
     parser.add_argument('--errors', '-e', action='store_true', help='Show only errors')
     parser.add_argument('--analyze', '-a', action='store_true', help='Analyze log patterns')
     parser.add_argument('--sessions', '-s', action='store_true', help='List all sessions')
+    parser.add_argument('--info', '-i', action='store_true', help='Show app info')
 
     args = parser.parse_args()
 
-    if args.sessions:
+    if args.info:
+        show_app_info()
+    elif args.sessions:
         list_sessions()
     elif args.analyze:
         analyze_logs()
