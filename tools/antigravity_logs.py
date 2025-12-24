@@ -238,6 +238,60 @@ def analyze_logs():
 
     print("\n" + "=" * 60)
 
+def read_terminal_history(lines=30):
+    """Read terminal command history from Antigravity."""
+    global_storage = Path.home() / "Library/Application Support/Antigravity/User/globalStorage/state.vscdb"
+
+    if not global_storage.exists():
+        print("❌ Global storage not found")
+        return
+
+    try:
+        import sqlite3
+        import json
+
+        conn = sqlite3.connect(str(global_storage))
+        cursor = conn.cursor()
+        cursor.execute("SELECT value FROM ItemTable WHERE key='terminal.history.entries.commands'")
+        result = cursor.fetchone()
+        conn.close()
+
+        if not result:
+            print("❌ No terminal history found")
+            return
+
+        data = json.loads(result[0])
+        entries = data.get('entries', [])
+
+        print("📜 Antigravity Terminal Command History")
+        print("=" * 70)
+        print(f"Showing last {min(lines, len(entries))} of {len(entries)} commands")
+        print("-" * 70)
+
+        for i, entry in enumerate(entries[-lines:], 1):
+            cmd = entry.get('key', '').strip()
+            shell = entry.get('value', {}).get('shellType', 'unknown')
+
+            # Color code by shell type
+            if shell == 'python':
+                shell_icon = "🐍"
+            elif shell == 'node':
+                shell_icon = "📦"
+            elif shell == 'zsh' or shell == 'bash':
+                shell_icon = "💻"
+            else:
+                shell_icon = "⚪"
+
+            if cmd:
+                # Truncate long commands
+                cmd_display = cmd[:60] + "..." if len(cmd) > 60 else cmd
+                print(f"{i:3}. {shell_icon} [{shell:7}] {cmd_display}")
+
+        print("=" * 70)
+
+    except Exception as e:
+        print(f"❌ Error reading terminal history: {e}")
+
 def main():
     parser = argparse.ArgumentParser(description='Antigravity Log Reader')
     parser.add_argument('--tail', '-n', type=int, default=50, help='Number of lines to show')
@@ -245,6 +299,7 @@ def main():
     parser.add_argument('--analyze', '-a', action='store_true', help='Analyze log patterns')
     parser.add_argument('--sessions', '-s', action='store_true', help='List all sessions')
     parser.add_argument('--info', '-i', action='store_true', help='Show app info')
+    parser.add_argument('--terminal', '-t', action='store_true', help='Show terminal command history')
 
     args = parser.parse_args()
 
@@ -254,6 +309,8 @@ def main():
         list_sessions()
     elif args.analyze:
         analyze_logs()
+    elif args.terminal:
+        read_terminal_history(lines=args.tail)
     else:
         read_logs(lines=args.tail, errors_only=args.errors)
 
