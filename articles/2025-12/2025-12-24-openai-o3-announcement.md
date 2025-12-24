@@ -1,6 +1,6 @@
 ---
 title: "OpenAI เปิดตัว o3 โมเดล AI รุ่นใหม่ ทำคะแนน ARC-AGI สูงถึง 87.5%"
-date: 2024-12-24
+date: 2025-12-24
 category: breaking
 tags: [AI, OpenAI, o3, AGI, Benchmark]
 author: paji-news
@@ -46,4 +46,4 @@ OpenAI จะเปิดให้นักวิจัยด้านควา�
 - [ARC Prize Foundation](https://arcprize.org)
 
 ---
-*Published: 2024-12-24 17:00 GMT+7*
+*Published: 2025-12-24 17:00 GMT+7*

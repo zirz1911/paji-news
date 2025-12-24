@@ -1,6 +1,6 @@
 ---
 title: "Claude Code เปิดตัว Custom Slash Commands ช่วยเพิ่มประสิทธิภาพการทำงาน"
-date: 2024-12-24
+date: 2025-12-24
 category: breaking
 tags: [AI, Claude, Developer Tools, Productivity]
 author: paji-news
@@ -50,4 +50,4 @@ allowed-tools: Bash
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)
 
 ---
-*Published: 2024-12-24 16:30 GMT+7*
+*Published: 2025-12-24 16:30 GMT+7*

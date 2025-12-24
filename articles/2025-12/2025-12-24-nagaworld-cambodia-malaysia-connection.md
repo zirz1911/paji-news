@@ -1,7 +1,7 @@
 ---
 title: "NagaWorld: คาสิโนกัมพูชาที่มีสายสัมพันธ์ลึกซึ้งกับมาเลเซีย"
 title_en: "NagaWorld: Cambodia's Casino with Deep Malaysian Ties"
-date: 2024-12-24
+date: 2025-12-24
 category: feature
 tags: [Casino, NagaWorld, Cambodia, Malaysia, Gambling, Legal, Business]
 author: paji-news
@@ -133,4 +133,4 @@ NagaWorld stands as a clear example of business ties between Cambodia and Malays
 - [Wikipedia - NagaCorp](https://en.wikipedia.org/wiki/NagaCorp)
 
 ---
-*Published: 2024-12-24 17:30 GMT+7*
+*Published: 2025-12-24 17:30 GMT+7*

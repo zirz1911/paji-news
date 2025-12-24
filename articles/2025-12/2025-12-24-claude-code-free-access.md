@@ -1,7 +1,7 @@
 ---
 title: "Claude Code เปิดให้ใช้งานฟรี! เครื่องมือ AI Coding จาก Anthropic"
 title_en: "Claude Code Now Free! AI Coding Tool from Anthropic"
-date: 2024-12-24
+date: 2025-12-24
 category: breaking
 tags: [AI, Claude Code, Anthropic, Coding, Developer Tools, Free]
 author: paji-news
@@ -86,4 +86,4 @@ Anthropic has made Claude Code available for free at modest usage levels. This A
 - [Claude 3.7 Sonnet Announcement](https://www.anthropic.com/news/claude-3-7-sonnet)
 
 ---
-*Published: 2024-12-24 18:00 GMT+7*
+*Published: 2025-12-24 18:00 GMT+7*
