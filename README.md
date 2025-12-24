@@ -58,6 +58,91 @@ paji-news/
 | `summarizer.md` | สรุปข่าวให้กระชับ |
 | `infographic-ideas.md` | สร้างไอเดีย Infographic |
 
+## How to Write News (Workflow)
+
+### Workflow Diagram
+```
+┌─────────────────────────────────────────────────────────┐
+│                    NEWS WRITING WORKFLOW                 │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. CHOOSE TYPE          2. USE TEMPLATE                │
+│  ┌──────────────┐       ┌──────────────┐               │
+│  │ Breaking?    │──────▶│ breaking-    │               │
+│  │ Feature?     │       │ news.md      │               │
+│  │ Summary?     │       │ feature-     │               │
+│  │ Infographic? │       │ article.md   │               │
+│  └──────────────┘       └──────────────┘               │
+│         │                      │                        │
+│         ▼                      ▼                        │
+│  3. AI ASSIST            4. WRITE & EDIT               │
+│  ┌──────────────┐       ┌──────────────┐               │
+│  │ Use prompts/ │──────▶│ Fill template│               │
+│  │ article-     │       │ Review & edit│               │
+│  │ writer.md    │       │ Add sources  │               │
+│  └──────────────┘       └──────────────┘               │
+│         │                      │                        │
+│         ▼                      ▼                        │
+│  5. SAVE                 6. COMMIT                      │
+│  ┌──────────────┐       ┌──────────────┐               │
+│  │ articles/    │──────▶│ git add      │               │
+│  │ YYYY-MM/     │       │ git commit   │               │
+│  │ filename.md  │       │ git push     │               │
+│  └──────────────┘       └──────────────┘               │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Step-by-Step Guide
+
+#### Step 1: เลือกประเภทข่าว
+| ประเภท | เมื่อไหร่ใช้ |
+|--------|------------|
+| Breaking News | ข่าวด่วน เหตุการณ์ใหม่ ต้องการความรวดเร็ว |
+| Feature Article | บทความเชิงลึก วิเคราะห์ มีหลาย sections |
+| Summary | สรุปข่าวจากแหล่งอื่น ต้องการความกระชับ |
+| Infographic | ต้องการสร้าง visual content |
+
+#### Step 2: Copy Template
+```bash
+cp templates/[type].md articles/$(date +%Y-%m)/$(date +%Y-%m-%d)-title-slug.md
+```
+
+#### Step 3: ใช้ AI ช่วยเขียน
+1. เปิดไฟล์ `prompts/article-writer.md`
+2. ใส่ข้อมูล: Topic, Type, Tone, Key Information
+3. ให้ AI generate draft
+4. Review และ edit
+
+#### Step 4: ตรวจสอบก่อน Publish
+- [ ] Headline ดึงดูดและตรงประเด็น
+- [ ] Lead สรุปใจความสำคัญครบ
+- [ ] ข้อมูลถูกต้อง มี source
+- [ ] ไม่มี typos
+- [ ] Format ถูกต้องตาม template
+
+#### Step 5: Save & Commit
+```bash
+git add articles/
+git commit -m "article: [headline]"
+git push
+```
+
+### File Naming Convention
+```
+articles/YYYY-MM/YYYY-MM-DD-title-slug.md
+
+ตัวอย่าง:
+articles/2024-12/2024-12-24-ai-trends-2025.md
+articles/2024-12/2024-12-24-breaking-tech-news.md
+```
+
+### Tips
+- ใช้ภาษาที่เข้าใจง่าย หลีกเลี่ยงศัพท์เทคนิคที่ไม่จำเป็น
+- ใส่ source/reference เสมอ
+- Review อย่างน้อย 1 รอบก่อน commit
+- ใช้ tags ที่เกี่ยวข้องเพื่อง่ายต่อการค้นหา
+
 ## License
 
 MIT
