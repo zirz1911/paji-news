@@ -54,6 +54,23 @@ assets/YYYY-MM/YYYY-MM-DD-image-name.png
 2. ระบุ data points และ key message
 3. สร้าง brief สำหรับ designer
 
+## Voice Notification | แจ้งเตือนด้วยเสียง
+
+**ทุกครั้งที่ทำงานเสร็จ** ให้ใช้ `say` command แจ้งเตือน (English):
+
+```bash
+say "Task completed. [Brief description of what was done]."
+```
+
+**ตัวอย่าง:**
+```bash
+say "Task completed. Article created and pushed to GitHub."
+say "Task completed. Retrospective saved."
+say "Task completed. Year updated in all articles."
+```
+
+---
+
 ## Quality Checklist
 
 Before publishing:
