@@ -1,0 +1,151 @@
+# 🖥️ Antigravity Monitor Report
+
+**Generated:** 2025-12-24 20:02 GMT+7
+**Session:** `20251224T162423`
+**Duration:** 16:24 → 19:13 (~3 ชั่วโมง)
+
+---
+
+## 📱 Application Info
+
+| Field | Value |
+|-------|-------|
+| App Name | Antigravity |
+| Developer | Google |
+| Type | VS Code-based IDE |
+| Logs Path | `~/Library/Application Support/Antigravity/logs` |
+
+---
+
+## 📦 Installed Extensions
+
+| Extension | Type | Description |
+|-----------|------|-------------|
+| 🟣 Anthropic.claude-code | AI Assistant | Claude Code integration |
+| 🔵 google.antigravity | AI Assistant | Google's AI assistant |
+| ⚫ GitHub.vscode-pull-request-github | Git | GitHub PR management |
+| ⚫ vscode.github | Git | GitHub integration |
+| ⚫ vscode.github-authentication | Git | GitHub auth |
+| 🟡 ms-python.python | Language | Python support |
+| 🟡 ms-python.debugpy | Language | Python debugger |
+| ⚪ vscode.git | Core | Git support |
+| ⚪ vscode.json-language-features | Core | JSON support |
+| ⚪ vscode.markdown-language-features | Core | Markdown support |
+
+---
+
+## 📊 Log Analysis
+
+### Summary
+
+| Metric | Count |
+|--------|-------|
+| Total Lines | 195 |
+| 🔵 Info | 195 |
+| 🟡 Warning | 2 |
+| 🔴 Error | 10 |
+
+### Time Range
+- **Start:** 2025-12-24 16:24:26
+- **End:** 2025-12-24 19:13:45
+
+### Common Patterns
+
+| Pattern | Count | Description |
+|---------|-------|-------------|
+| `truncated` | 167 | Query text > 1500 bytes limit |
+| `failed` | 12 | Operation failures |
+| `trajectory` | 10 | Trajectory sync issues |
+| `supercomplete` | 4 | No supercomplete response |
+
+---
+
+## ⚠️ Errors & Warnings
+
+### Warning (2)
+```
+16:24:27 - You are not logged into Antigravity.
+```
+
+### Errors (10)
+All errors are related to trajectory sync failures:
+
+| Time | Error |
+|------|-------|
+| 16:52:29 | Failed to set trajectory start index for sync refresh |
+| 16:52:29 | Failed to set trajectory start index for async refresh |
+| 17:28:06 | Failed to set trajectory start index for sync refresh |
+| 17:28:06 | Failed to set trajectory start index for async refresh |
+| 17:31:30 | Failed to set trajectory start index for sync refresh |
+| 17:31:30 | Failed to set trajectory start index for async refresh |
+| 18:17:52 | Failed to set trajectory start index for sync refresh (x2) |
+| 18:17:52 | Failed to set trajectory start index for async refresh (x2) |
+
+**Root Cause:** `could not convert a single message before hitting truncation`
+
+---
+
+## 📜 Terminal Command History (Last 20)
+
+| # | Shell | Command |
+|---|-------|---------|
+| 1 | 🐍 Python | `cd paji-editz && python3 -m py_compile ...` |
+| 2 | 🐍 Python | `cd paji-editz && python3 -m py_compile ...` |
+| 3 | 💻 Zsh | `cd paji-editz && python3 -m py_compile ...` |
+| 4 | 💻 Zsh | `cd paji-editz && python3 -m py_compile ...` |
+| 5 | 💻 Zsh | `cd paji-editz && python3 -m py_compile ...` |
+| 6 | 📦 Node | `claude --dangerously-skip-permissions` |
+| 7 | 💻 Zsh | `export ANTHROPIC_API_KEY="..."` |
+| 8 | 💻 Zsh | `echo $ANTHROPIC_API_KEY` |
+| 9 | 💻 Zsh | `cladue` (typo) |
+| 10 | 📦 Node | `claude` |
+| 11 | 💻 Zsh | `source paji-editz/venv/bin/activate` |
+| 12 | 💻 Bash | `sh run_editor.sh` |
+| 13 | 💻 Zsh | `git remote -v` |
+| 14 | 💻 Zsh | `git log --oneline --graph --all -n 20` |
+| 15 | ⚪ Unknown | `git fetch` |
+| 16 | ⚪ Unknown | `git status` |
+| 17 | ⚪ Unknown | `git pull --rebase` |
+| 18 | 💻 Zsh | `git add && git commit --amend --no-edit` |
+| 19 | ⚪ Unknown | `git push origin main` |
+| 20 | 💻 Zsh | `clear` |
+
+### Shell Distribution
+- 💻 Bash/Zsh: 12 commands
+- 🐍 Python: 3 commands
+- 📦 Node: 2 commands
+- ⚪ Unknown: 3 commands
+
+---
+
+## 📈 Health Assessment
+
+| Category | Status | Note |
+|----------|--------|------|
+| Overall | 🟡 **Fair** | มี errors แต่ไม่ร้ายแรง |
+| Extensions | 🟢 **Good** | ทุก extension ทำงานปกติ |
+| Terminal | 🟢 **Good** | ใช้งานได้ปกติ |
+| AI Features | 🟡 **Fair** | มี truncation issues |
+
+### Issues Summary
+1. **Truncation Limit** - Query text ถูก truncate เมื่อยาวเกิน 1500 bytes
+2. **Trajectory Sync** - Failed ในบางครั้งเมื่อ message ใหญ่เกินไป
+3. **Not Logged In** - Warning ตอนเริ่ม session
+
+### Recommendations
+- ✅ ลดความยาว query ถ้าเป็นไปได้
+- ✅ Login เข้า Antigravity ถ้าต้องการ full features
+- ✅ Errors เป็น non-critical ไม่กระทบการใช้งานหลัก
+
+---
+
+## 🔗 Related Files
+
+- **Logs:** `~/Library/Application Support/Antigravity/logs/20251224T162423/`
+- **Main Log:** `.../google.antigravity/Antigravity.log`
+- **Terminal History:** `~/Library/Application Support/Antigravity/User/globalStorage/state.vscdb`
+
+---
+
+*Generated by Antigravity Log Reader*
+*Tool: `paji-news/tools/antigravity_logs.py`*
